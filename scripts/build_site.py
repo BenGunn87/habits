@@ -27,7 +27,7 @@ def nav_items() -> list[tuple[str, str, str]]:
     return [
         ("index", "Главная", "index.html"),
         ("habits", "Привычки", "habits.html"),
-        ("resources", "PDF", "resources.html"),
+        ("resources", "Материалы", "resources.html"),
         ("exercises", "Упражнения", "exercises.html"),
     ]
 
@@ -45,7 +45,6 @@ def render_header(site: dict, current: str) -> str:
     <header class="site-header">
       <div class="shell site-header__inner">
         <a class="brand" href="index.html">
-          <span class="brand__eyebrow">Практика</span>
           <span class="brand__title">{safe(site["title"])}</span>
         </a>
         <nav class="site-nav" aria-label="Основная навигация">
@@ -68,17 +67,12 @@ def render_footer(site: dict) -> str:
           <p>{safe(site["description"])}</p>
         </div>
         <div class="site-footer__block">
-          <p class="site-footer__label">GitHub Pages</p>
-          <ul class="plain-list">{notes}</ul>
-        </div>
-        <div class="site-footer__block">
           <p class="site-footer__label">Дисклеймер</p>
           <p>{safe(site["disclaimer"])}</p>
         </div>
       </div>
       <div class="shell site-footer__meta">
         <span>© {date.today().year} {safe(site["title"])}</span>
-        <span>Статический сайт для GitHub Pages</span>
       </div>
     </footer>
     """
@@ -132,10 +126,6 @@ def render_stat_card(label: str, value: str, text: str) -> str:
 def render_article_card(article: dict) -> str:
     return f"""
     <article class="content-card">
-      <div class="content-card__meta">
-        <span>{safe(article["category"])}</span>
-        <span>{safe(article["readTime"])}</span>
-      </div>
       <h3><a href="{article_href(article['slug'])}">{safe(article["title"])}</a></h3>
       <p>{safe(article["summary"])}</p>
       <a class="text-link" href="{article_href(article['slug'])}">Открыть материал</a>
@@ -147,7 +137,7 @@ def render_resource_card(resource: dict) -> str:
     highlights = "".join(f"<li>{safe(item)}</li>" for item in resource["highlights"])
     return f"""
     <article class="resource-card">
-      <img src="{safe(resource['coverPath'])}" alt="" class="resource-card__art">
+       <img src="{safe(resource['coverPath'])}" alt="" class="resource-card__art">
       <div class="resource-card__body">
         <div class="content-card__meta">
           <span>{safe(resource["format"])}</span>
@@ -234,7 +224,6 @@ def render_index(data: dict) -> str:
     body = f"""
     <section class="hero shell">
       <div class="hero__copy">
-        <p class="eyebrow">Публичный гид</p>
         <h1>{safe(site["title"])}</h1>
         <p class="hero__tagline">{safe(site["tagline"])}</p>
         <p class="hero__text">{safe(site["heroIntro"])}</p>
@@ -244,14 +233,14 @@ def render_index(data: dict) -> str:
         </div>
       </div>
       <div class="hero__stats">
-        {render_stat_card("Статьи", str(len(data["articles"])), "Короткие объяснения без перегруза")}
-        {render_stat_card("PDF", str(len(data["resources"])), "Легкие материалы для скачивания")}
-        {render_stat_card("Видео", str(len(data["exercises"])), "Локальные файлы, совместимые с GitHub Pages")}
+        {render_stat_card("Статьи", str(len(data["articles"])), "Короткие объяснения принципов формирования привычек")}
+        {render_stat_card("PDF", str(len(data["resources"])), "Дополнительные материалы для скачивания")}
+        {render_stat_card("Видео", str(len(data["exercises"])), "Демонстрация упражнений")}
       </div>
     </section>
 
     <section class="shell section">
-      {render_section_intro("Навигация", "Три входа в контент", "Сначала можно пройти базовые статьи о системе привычек, затем скачать вспомогательные PDF и перейти к спокойным упражнениям для поддержки тела.")}
+      {render_section_intro("Навигация", "Три входа в контент", "Сначала можно прочитать статьи о системе привычек, затем скачать вспомогательные материалы и перейти к упражнениям.")}
       <div class="grid-three">
         <article class="spotlight-card">
           <p class="spotlight-card__eyebrow">Привычки</p>
@@ -261,42 +250,16 @@ def render_index(data: dict) -> str:
         </article>
         <article class="spotlight-card">
           <p class="spotlight-card__eyebrow">PDF</p>
-          <h3>Дополнительные материалы на одну страницу</h3>
-          <p>Шпаргалки и формы для практики можно скачать напрямую без регистрации и лишних переходов.</p>
+          <h3>Дополнительные материалы</h3>
+          <p>Шпаргалки и формы для практики можно скачать напрямую без регистрации и лишних переходов</p>
           <a class="text-link" href="resources.html">Перейти к файлам</a>
         </article>
         <article class="spotlight-card">
           <p class="spotlight-card__eyebrow">Упражнения</p>
-          <h3>Мягкие практики с текстовым описанием</h3>
-          <p>Каждое упражнение сопровождается локальным видеофайлом, структурой шагов и предупреждениями по безопасности.</p>
+          <h3>Легкий физические упражнения</h3>
+          <p>Легкие для выполнения физические упражнения для поддержания здоровья.</p>
           <a class="text-link" href="exercises.html">Смотреть упражнения</a>
         </article>
-      </div>
-    </section>
-
-    <section class="shell section">
-      {render_section_intro("Избранное", "С чего начать", "На старте достаточно выбрать один материал про привычки, один PDF и одно упражнение. Этого хватит, чтобы получить рабочую первую неделю практики.")}
-      <div class="cards-grid cards-grid--articles">
-        {featured_articles}
-      </div>
-    </section>
-
-    <section class="shell section">
-      <div class="cards-grid cards-grid--resources">
-        {featured_resources}
-      </div>
-    </section>
-
-    <section class="shell section">
-      <div class="cards-grid cards-grid--exercises">
-        {featured_exercises}
-      </div>
-    </section>
-
-    <section class="shell section">
-      {render_section_intro("GitHub Pages", "Ограничения учтены в структуре", "Первая версия намеренно сделана легкой: контент хранится в файлах, ссылки остаются относительными, а медиатека собрана компактно, чтобы сайт спокойно публиковался как project site на GitHub Pages.")}
-      <div class="chips-wrap">
-        {constraints}
       </div>
     </section>
     """
@@ -309,8 +272,8 @@ def render_habits_page(data: dict) -> str:
     body = f"""
     <section class="page-hero shell">
       <p class="eyebrow">Раздел материалов</p>
-      <h1>Привычки как система, а не как марафон воли</h1>
-      <p>В этом разделе собраны короткие тексты о том, как запускать новую привычку через ясные сигналы, малый порог входа и спокойный недельный обзор.</p>
+      <h1>Полезные привычки простыми словами</h1>
+      <p>Здесь собраны короткие статьи о том, как мозг запоминает повторения, зачем нужны сигналы и почему привычку легче вырастить маленькими шагами, игрой и поддержкой близких.</p>
     </section>
     <section class="shell section">
       <div class="cards-grid cards-grid--articles">
@@ -320,7 +283,7 @@ def render_habits_page(data: dict) -> str:
     """
     return render_layout(
         "Материалы о привычках",
-        "Статьи о формировании привычек, настройке среды и недельном обзоре.",
+        "Статьи о привычках простыми словами: мозг, сигналы, маленькие шаги, награды и поддержка.",
         site,
         "habits",
         body,
@@ -331,11 +294,9 @@ def render_article_page(data: dict, article: dict) -> str:
     site = data["site"]
     body = f"""
     <section class="page-hero shell page-hero--narrow">
-      <p class="eyebrow">{safe(article["category"])}</p>
       <h1>{safe(article["title"])}</h1>
       <p class="hero__tagline">{safe(article["summary"])}</p>
       <div class="hero-meta">
-        <span>{safe(article["readTime"])}</span>
         <span>Раздел: привычки</span>
       </div>
       <p><a class="text-link" href="habits.html">← Вернуться к списку материалов</a></p>
@@ -352,9 +313,8 @@ def render_resources_page(data: dict) -> str:
     cards = "".join(render_resource_card(resource) for resource in data["resources"])
     body = f"""
     <section class="page-hero shell">
-      <p class="eyebrow">PDF-библиотека</p>
-      <h1>Дополнительные материалы для самостоятельной практики</h1>
-      <p>Файлы открываются и скачиваются напрямую. Карточки сделаны легкими по весу, а сами PDF подходят для GitHub Pages и быстрой публикации без внешнего хранилища.</p>
+      <h1>Дополнительные материалы</h1>
+      <p>Файлы открываются и скачиваются напрямую.</p>
     </section>
     <section class="shell section">
       <div class="cards-grid cards-grid--resources">
@@ -470,9 +430,24 @@ def write_text(path: Path, content: str) -> None:
     path.write_text(content, encoding="utf-8")
 
 
+def clean_generated_pages(pattern: str, keep_names: set[str]) -> None:
+    for path in SITE_DIR.glob(pattern):
+        if path.name not in keep_names:
+            path.unlink()
+
+
 def main() -> None:
     data = load_content()
     SITE_DIR.mkdir(parents=True, exist_ok=True)
+
+    clean_generated_pages(
+        "habit-*.html",
+        {article_href(article["slug"]) for article in data["articles"]},
+    )
+    clean_generated_pages(
+        "exercise-*.html",
+        {exercise_href(exercise["slug"]) for exercise in data["exercises"]},
+    )
 
     write_text(SITE_DIR / "index.html", render_index(data))
     write_text(SITE_DIR / "habits.html", render_habits_page(data))

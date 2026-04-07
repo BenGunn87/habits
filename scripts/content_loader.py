@@ -86,7 +86,7 @@ def load_site_config() -> dict:
 
 
 def load_articles() -> list[dict]:
-    required = ("title", "summary", "category", "readTime")
+    required = ("title", "summary")
     items = []
     for path, frontmatter, body in iter_documents(ARTICLES_DIR):
         validate_required_fields(path, frontmatter, required)
@@ -95,8 +95,6 @@ def load_articles() -> list[dict]:
                 "slug": path.stem,
                 "title": frontmatter["title"],
                 "summary": frontmatter["summary"],
-                "category": frontmatter["category"],
-                "readTime": frontmatter["readTime"],
                 "sections": parse_article_sections(path, body),
             }
         )

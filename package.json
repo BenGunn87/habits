@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "python3 scripts/generate_media.py && python3 scripts/build_site.py",
+    "build": "python3 python3 scripts/build_site.py",
     "serve": "python3 -m http.server 4173 -d site",
     "validate": "python3 scripts/validate_content.py"
   }
