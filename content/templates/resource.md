@@ -14,5 +14,5 @@ downloadLabel = "Скачать PDF"
 - еще один ключевой пункт
 - короткое описание пользы
 
-<!-- PDF положите в site/assets/files/{slug}.pdf -->
-<!-- Обложку положите в site/assets/images/resource-{slug}.svg -->
+<!-- PDF положите в docs/assets/files/{slug}.pdf -->
+<!-- Обложку положите в docs/assets/images/resource-{slug}.svg -->

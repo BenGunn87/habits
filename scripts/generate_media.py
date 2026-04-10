@@ -6,8 +6,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-FILES_DIR = ROOT / "site" / "assets" / "files"
-MEDIA_DIR = ROOT / "site" / "assets" / "media"
+FILES_DIR = ROOT / "docs" / "assets" / "files"
+MEDIA_DIR = ROOT / "docs" / "assets" / "media"
 DEMO_MP4_BASE64_FILE = ROOT / "scripts" / "demo-video.b64"
 
 
@@ -129,7 +129,7 @@ def write_pdfs() -> None:
 def main() -> None:
     write_demo_videos()
     write_pdfs()
-    print("Generated media assets in site/assets.")
+    print("Generated media assets in docs/assets.")
 
 
 if __name__ == "__main__":

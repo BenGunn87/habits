@@ -4,8 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "python3 scripts/build_site.py",
-    "serve": "python3 -m http.server 4173 -d site",
+    "serve": "python3 -m http.server 4173 -d docs",
     "validate": "python3 scripts/validate_content.py"
   }
 }
-

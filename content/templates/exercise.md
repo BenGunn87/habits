@@ -24,5 +24,5 @@ videoNote = "Видео можно заменить, если сохранить
 - важное предупреждение
 - когда нужно снизить нагрузку
 
-<!-- Видео положите в site/assets/media/{slug}.mp4 -->
-<!-- Постер положите в site/assets/images/poster-{slug}.svg -->
+<!-- Видео положите в docs/assets/media/{slug}.mp4 -->
+<!-- Постер положите в docs/assets/images/poster-{slug}.svg -->

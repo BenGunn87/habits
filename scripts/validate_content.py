@@ -7,7 +7,7 @@ from pathlib import Path
 from content_loader import ContentError, load_content
 
 ROOT = Path(__file__).resolve().parents[1]
-SITE_DIR = ROOT / "site"
+SITE_DIR = ROOT / "docs"
 
 
 def article_href(slug: str) -> str:

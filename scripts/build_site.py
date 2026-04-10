@@ -8,7 +8,7 @@ from pathlib import Path
 from content_loader import ContentError, load_content
 
 ROOT = Path(__file__).resolve().parents[1]
-SITE_DIR = ROOT / "site"
+SITE_DIR = ROOT / "docs"
 
 
 def safe(value: str) -> str:
@@ -462,7 +462,7 @@ def main() -> None:
     for exercise in data["exercises"]:
         write_text(SITE_DIR / exercise_href(exercise["slug"]), render_exercise_page(data, exercise))
 
-    print("Built static pages in site/.")
+    print("Built static pages in docs/.")
 
 
 if __name__ == "__main__":

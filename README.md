@@ -1,6 +1,6 @@
 # Практика Привычек
 
-Статический сайт о выработке привычек, PDF-материалах и упражнениях. Проект рассчитан на размещение через GitHub Pages и не требует внешних npm-зависимостей.
+Статический сайт о выработке привычек, PDF-материалах и упражнениях
 
 ## Запуск
 
@@ -25,10 +25,10 @@ npm run serve
    - PDF-материалы: [`content/resources`](./content/resources)
    - упражнения: [`content/exercises`](./content/exercises)
 5. Если это PDF или упражнение, добавьте ассеты с тем же slug:
-   - PDF: `site/assets/files/{slug}.pdf`
-   - обложка PDF: `site/assets/images/resource-{slug}.svg`
-   - видео упражнения: `site/assets/media/{slug}.mp4`
-   - постер упражнения: `site/assets/images/poster-{slug}.svg`
+   - PDF: `docs/assets/files/{slug}.pdf`
+   - обложка PDF: `docs/assets/images/resource-{slug}.svg`
+   - видео упражнения: `docs/assets/media/{slug}.mp4`
+   - постер упражнения: `docs/assets/images/poster-{slug}.svg`
 6. При необходимости добавьте slug в featured-списки внутри [`content/site.json`](./content/site.json).
 7. Выполните `npm run build`.
 8. Проверьте `npm run validate`.
@@ -42,9 +42,9 @@ npm run serve
 - `content/templates/` - шаблоны для добавления новых материалов.
 - `scripts/generate_media.py` - генерация стартовых PDF и легких MP4-заглушек.
 - `scripts/content_loader.py` - чтение `site.json` и Markdown-контента.
-- `scripts/build_site.py` - сборка HTML-страниц в папку `site/`.
+- `scripts/build_site.py` - сборка HTML-страниц в папку `docs/`.
 - `scripts/validate_content.py` - проверки ссылок, slug и веса медиафайлов.
-- `site/` - готовый статический сайт и ассеты для GitHub Pages.
+- `docs/` - готовый статический сайт и ассеты для GitHub Pages.
 
 ## GitHub Pages
 
@@ -53,6 +53,6 @@ npm run serve
 1. генерирует медиафайлы;
 2. собирает HTML из JSON;
 3. валидирует контент;
-4. публикует папку `site/` как GitHub Pages artifact.
+4. публикует папку `docs/` как GitHub Pages artifact.
 
 В стартовой версии раздел упражнений использует очень легкие локальные MP4-заглушки, чтобы структура каталога и проигрыватель были рабочими сразу. Их можно заменить собственными роликами без переделки страниц, сохранив те же пути к файлам.
