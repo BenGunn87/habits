@@ -137,7 +137,6 @@ def render_resource_card(resource: dict) -> str:
     highlights = "".join(f"<li>{safe(item)}</li>" for item in resource["highlights"])
     return f"""
     <article class="resource-card">
-       <img src="{safe(resource['coverPath'])}" alt="" class="resource-card__art">
       <div class="resource-card__body">
         <div class="content-card__meta">
           <span>{safe(resource["format"])}</span>

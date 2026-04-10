@@ -52,7 +52,6 @@ def main() -> int:
     for resource in data["resources"]:
         file_path = SITE_DIR / resource["filePath"]
         require(file_path.exists(), f"Missing resource file: {file_path}", errors)
-        require((SITE_DIR / resource["coverPath"]).exists(), f"Missing resource cover: {resource['coverPath']}", errors)
         if file_path.exists():
             media_budget += file_path.stat().st_size
 
