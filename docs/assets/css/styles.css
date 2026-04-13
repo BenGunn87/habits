@@ -452,6 +452,9 @@ h3 {
 }
 
 .exercise-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
   overflow: hidden;
 }
 
@@ -467,7 +470,20 @@ h3 {
 }
 
 .exercise-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
   padding: 22px 24px 24px;
+}
+
+.exercise-card__body h3,
+.exercise-card__body p {
+  margin: 0;
+}
+
+.exercise-card .text-link {
+  margin-top: auto;
 }
 
 .exercise-card__focus {
@@ -517,6 +533,12 @@ h3 {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.75fr);
   gap: 20px;
+  max-width: min(860px, var(--shell));
+}
+
+.exercise-detail > :only-child,
+.detail-grid > :only-child {
+  grid-column: 1 / -1;
 }
 
 .exercise-detail__media {
@@ -559,6 +581,8 @@ h3 {
 
 .detail-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: min(860px, var(--shell));
+  margin: 0 auto;
 }
 
 .detail-card {
