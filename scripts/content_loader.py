@@ -19,9 +19,7 @@ FRONTMATTER_RE = re.compile(r"\A\+\+\+\n(.*?)\n\+\+\+\n?(.*)\Z", re.DOTALL)
 
 RESOURCE_HIGHLIGHT_HEADINGS = {"главное", "highlights"}
 EXERCISE_SECTION_ALIASES = {
-    "benefits": {"польза", "benefits"},
-    "steps": {"шаги", "steps"},
-    "cautions": {"осторожность", "ограничения", "cautions"},
+    "steps": {"упражнения", "steps"}
 }
 
 SITE_REQUIRED_KEYS = {
@@ -133,7 +131,7 @@ def load_resources() -> list[dict]:
 
 
 def load_exercises() -> list[dict]:
-    required = ("title", "summary", "duration", "level", "focus", "videoNote")
+    required = ("title", "summary", "videoNote")
     items = []
     for path, frontmatter, body in iter_documents(EXERCISES_DIR):
         validate_required_fields(path, frontmatter, required)
@@ -143,15 +141,10 @@ def load_exercises() -> list[dict]:
                 "slug": path.stem,
                 "title": frontmatter["title"],
                 "summary": frontmatter["summary"],
-                "duration": frontmatter["duration"],
-                "level": frontmatter["level"],
-                "focus": frontmatter["focus"],
                 "videoNote": frontmatter["videoNote"],
                 "posterPath": f"assets/images/poster-{path.stem}.svg",
                 "videoPath": f"assets/media/{path.stem}.mp4",
-                "benefits": require_named_section(path, section_map, EXERCISE_SECTION_ALIASES["benefits"], "benefits"),
                 "steps": require_named_section(path, section_map, EXERCISE_SECTION_ALIASES["steps"], "steps"),
-                "cautions": require_named_section(path, section_map, EXERCISE_SECTION_ALIASES["cautions"], "cautions"),
             }
         )
     return items

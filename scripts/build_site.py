@@ -159,13 +159,9 @@ def render_exercise_card(exercise: dict) -> str:
         <img class="exercise-card__poster" src="{safe(exercise['posterPath'])}" alt="Постер упражнения: {safe(exercise['title'])}">
       </a>
       <div class="exercise-card__body">
-        <div class="content-card__meta">
-          <span>{safe(exercise["level"])}</span>
-          <span>{safe(exercise["duration"])}</span>
-        </div>
         <h3><a href="{exercise_href(exercise['slug'])}">{safe(exercise["title"])}</a></h3>
         <p>{safe(exercise["summary"])}</p>
-        <p class="exercise-card__focus">Фокус: {safe(exercise["focus"])}</p>
+
         <a class="text-link" href="{exercise_href(exercise['slug'])}">Смотреть разбор</a>
       </div>
     </article>
@@ -357,20 +353,13 @@ def render_exercises_page(data: dict) -> str:
 
 def render_exercise_page(data: dict, exercise: dict) -> str:
     site = data["site"]
-    benefits = "".join(f"<li>{safe(item)}</li>" for item in exercise["benefits"])
     steps = "".join(f"<li>{safe(item)}</li>" for item in exercise["steps"])
-    cautions = "".join(f"<li>{safe(item)}</li>" for item in exercise["cautions"])
 
     body = f"""
     <section class="page-hero shell page-hero--narrow">
       <p class="eyebrow">Упражнение</p>
       <h1>{safe(exercise["title"])}</h1>
       <p class="hero__tagline">{safe(exercise["summary"])}</p>
-      <div class="hero-meta">
-        <span>{safe(exercise["level"])}</span>
-        <span>{safe(exercise["duration"])}</span>
-        <span>{safe(exercise["focus"])}</span>
-      </div>
       <p><a class="text-link" href="exercises.html">← Вернуться к каталогу упражнений</a></p>
     </section>
 
@@ -383,28 +372,14 @@ def render_exercise_page(data: dict, exercise: dict) -> str:
         <p class="media-note">{safe(exercise["videoNote"])}</p>
       </div>
 
-      <aside class="exercise-detail__aside">
-        <div class="info-panel">
-          <p class="info-panel__label">Фокус</p>
-          <p>{safe(exercise["focus"])}</p>
-        </div>
-        <div class="info-panel">
-          <p class="info-panel__label">Польза</p>
-          <ul class="plain-list">{benefits}</ul>
-        </div>
-      </aside>
+
     </section>
 
     <section class="shell section">
       <div class="detail-grid">
         <article class="detail-card">
-          <h2>Как выполнять</h2>
+          <h2>Упражнения</h2>
           <ol class="steps-list">{steps}</ol>
-        </article>
-        <article class="detail-card detail-card--warning">
-          <h2>Осторожность и ограничения</h2>
-          <ul class="plain-list">{cautions}</ul>
-          <p class="detail-card__disclaimer">{safe(site["disclaimer"])}</p>
         </article>
       </div>
     </section>

@@ -1,0 +1,74 @@
+<svg width="960" height="540" viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e3f2fd"/>
+      <stop offset="100%" stop-color="#e8f5e9"/>
+    </linearGradient>
+    <linearGradient id="gradPlay" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff7043"/>
+      <stop offset="100%" stop-color="#f4511e"/>
+    </linearGradient>
+    <linearGradient id="gradGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#81d4fa" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#81c784" stop-opacity="0.8"/>
+    </linearGradient>
+    <filter id="shadowText" x="0" y="0" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="1" flood-color="#b0bec5"/>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#gradBg)"/>
+
+  <g transform="translate(480, 270)" opacity="0.6">
+    <circle cx="0" cy="0" r="150" fill="none" stroke="#64b5f6" stroke-width="4" stroke-dasharray="10 10"/>
+    <circle cx="0" cy="0" r="200" fill="none" stroke="#a5d6a7" stroke-width="4" stroke-dasharray="15 15"/>
+    <path d="M-220,0 A220,220 0 0,1 220,0" fill="none" stroke="#ff8a65" stroke-width="6" stroke-linecap="round"/>
+    <path d="M220,0 A220,220 0 0,1 -220,0" fill="none" stroke="#ff8a65" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(680, 270)">
+    <g transform="rotate(15)">
+      <path d="M-80,-120 C-60,-150 0,-160 30,-140 C60,-120 70,-90 60,-60 L50,-10 C40,40 -20,80 -70,90 C-110,95 -140,80 -150,50 C-160,20 -150,-20 -130,-50 L-90,-100 Z" fill="#b3e5fc" stroke="#4fc3f7" stroke-width="6"/>
+      <path d="M-40,-135 C-25,-155 10,-155 30,-140" fill="none" stroke="#ffab91" stroke-width="5" stroke-linecap="round"/>
+      <path d="M0,-145 C15,-160 40,-150 50,-135" fill="none" stroke="#ffab91" stroke-width="5" stroke-linecap="round"/>
+      <path d="M40,-130 C55,-140 70,-120 70,-100" fill="none" stroke="#ffab91" stroke-width="5" stroke-linecap="round"/>
+      <path d="M60,-90 C75,-100 85,-70 80,-50" fill="none" stroke="#ffab91" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="-60" cy="-110" r="10" fill="#ff7043"/>
+      <circle cx="10" cy="-135" r="10" fill="#4caf50"/>
+      <circle cx="50" cy="-105" r="10" fill="#0288d1"/>
+      <circle cx="65" cy="-55" r="10" fill="#fbc02d"/>
+    </g>
+
+    <g transform="rotate(-15) translate(-150, 50)">
+      <path d="M-80,-120 C-60,-150 0,-160 30,-140 C60,-120 70,-90 60,-60 L50,-10 C40,40 -20,80 -70,90 C-110,95 -140,80 -150,50 C-160,20 -150,-20 -130,-50 L-90,-100 Z" fill="#b3e5fc" stroke="#4fc3f7" stroke-width="6" transform="scale(-1, 1) translate(100, 0)"/>
+      <path d="M-40,-135 C-25,-155 10,-155 30,-140" fill="none" stroke="#ffab91" stroke-width="5" stroke-linecap="round" transform="scale(-1, 1) translate(100, 0)"/>
+      <path d="M0,-145 C15,-160 40,-150 50,-135" fill="none" stroke="#ffab91" stroke-width="5" stroke-linecap="round" transform="scale(-1, 1) translate(100, 0)"/>
+      <path d="M40,-130 C55,-140 70,-120 70,-100" fill="none" stroke="#ffab91" stroke-width="5" stroke-linecap="round" transform="scale(-1, 1) translate(100, 0)"/>
+      <path d="M60,-90 C75,-100 85,-70 80,-50" fill="none" stroke="#ffab91" stroke-width="5" stroke-linecap="round" transform="scale(-1, 1) translate(100, 0)"/>
+      <circle cx="-160" cy="-110" r="10" fill="#ff7043" transform="scale(-1, 1) translate(100, 0)"/>
+      <circle cx="-90" cy="-135" r="10" fill="#4caf50" transform="scale(-1, 1) translate(100, 0)"/>
+      <circle cx="-50" cy="-105" r="10" fill="#0288d1" transform="scale(-1, 1) translate(100, 0)"/>
+      <circle cx="-35" cy="-55" r="10" fill="#fbc02d" transform="scale(-1, 1) translate(100, 0)"/>
+    </g>
+
+    <g opacity="0.4">
+      <path d="M120,-80 A120,120 0 0,1 120,80" fill="none" stroke="#ff7043" stroke-width="6" stroke-linecap="round"/>
+      <path d="M-120,-80 A120,120 0 0,0 -120,80" fill="none" stroke="#4caf50" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="130" cy="0" r="15" fill="#fbc02d"/>
+      <circle cx="-130" cy="0" r="15" fill="#0288d1"/>
+    </g>
+  </g>
+
+  <g transform="translate(100, 270)">
+    <text x="0" y="-80" font-family="Verdana, sans-serif" font-size="70" font-weight="bold" fill="#01579b" filter="url(#shadowText)">РАЗМИНКА</text>
+    <text x="0" y="30" font-family="Verdana, sans-serif" font-size="70" font-weight="bold" fill="#01579b" filter="url(#shadowText)">ДЛЯ РУК</text>
+    <rect x="-10" y="100" width="300" height="20" rx="10" fill="#ff7043"/>
+    <rect x="-10" y="140" width="200" height="15" rx="7.5" fill="#4caf50"/>
+  </g>
+
+  <g transform="translate(900, 500) scale(0.6)">
+    <circle cx="0" cy="0" r="50" fill="url(#gradPlay)"/>
+    <path d="M-15,-20 L25,0 L-15,20 Z" fill="white"/>
+  </g>
+
+</svg>
